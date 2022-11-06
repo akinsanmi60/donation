@@ -19,5 +19,4 @@ declare module "*.jpeg" {
   export default value;
 }
 
-
-declare module '@react-navigation/bottom-tabs';
+declare module "@react-navigation/bottom-tabs";

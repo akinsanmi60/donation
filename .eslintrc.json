@@ -1,0 +1,50 @@
+{
+  "env": {
+    "es2021": true
+  },
+  "extends": [
+    "react-app",
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:prettier/recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": false,
+      "tsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "project": ["tsconfig.json"]
+  },
+  "plugins": ["react", "prettier", "import", "react-hooks"],
+  "rules": {
+    "jsx-a11y/rule-name": "off",
+    "no-nested-ternary": "off",
+    "react/no-unescaped-entities": [0, {}],
+    "no-unused-vars": [0, {}],
+    "react/prop-types": "off",
+    "newIsCap": 0,
+    "new-cap": "off",
+    "linebreak-style": 0,
+    "global-require": 0,
+    "react/jsx-uses-react": ["off"],
+    "react/react-in-jsx-scope": ["off"],
+    "react/jsx-props-no-spreading": "off",
+    "no-shadow": "off",
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ],
+    "no-console": [
+      "warn",
+      {
+        "allow": ["clear", "info", "error", "dir", "trace", "log", "warn"]
+      }
+    ]
+  }
+}
