@@ -66,6 +66,11 @@ function RootNavigator() {
         options={{headerShown: false}}
       />
       <Stack.Screen
+        name="Login"
+        component={SplashScreenC}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
         name="Root"
         component={BottomTabNavigator}
         options={{headerShown: false}}
