@@ -3,7 +3,6 @@
     "es2021": true
   },
   "extends": [
-    "react-app",
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:prettier/recommended",
@@ -16,11 +15,11 @@
       "tsx": true
     },
     "ecmaVersion": "latest",
-    "sourceType": "module",
-    "project": ["tsconfig.json"]
+    "sourceType": "module"
   },
   "plugins": ["react", "prettier", "import", "react-hooks"],
   "rules": {
+    "@typescript-eslint/no-namespace": "off",
     "jsx-a11y/rule-name": "off",
     "no-nested-ternary": "off",
     "react/no-unescaped-entities": [0, {}],
@@ -35,7 +34,7 @@
     "react/jsx-props-no-spreading": "off",
     "no-shadow": "off",
     "prettier/prettier": [
-      "error",
+      "off",
       {
         "endOfLine": "auto"
       }

@@ -5,7 +5,7 @@
  */
 import {FontAwesome} from "@expo/vector-icons";
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
-import {NavigationContainer, DefaultTheme} from "@react-navigation/native";
+import {NavigationContainer} from "@react-navigation/native";
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
 import * as React from "react";
 import {Pressable} from "react-native";
