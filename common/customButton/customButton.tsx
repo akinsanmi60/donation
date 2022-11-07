@@ -25,13 +25,15 @@ const customButton = ({
         styles.container,
         styles[`container_${type}`],
         bgColor ? {backgroundColor: bgColor} : {},
-      ]}>
+      ]}
+    >
       <Text
         style={[
           styles.text,
           styles[`text_${type}`],
           fgColor ? {color: fgColor} : {},
-        ]}>
+        ]}
+      >
         {text}
       </Text>
     </Pressable>

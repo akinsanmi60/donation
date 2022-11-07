@@ -24,10 +24,8 @@ const CustomInput = ({control, rules, name, placeholder}: InputProp) => {
       render={({field: {value, onChange, onBlur}, fieldState: {error}}) => (
         <>
           <View
-            style={[
-              styles.container,
-              {borderColor: error ? "red" : "#e8e8e8"},
-            ]}>
+            style={[styles.container, {borderColor: error ? "red" : "#e8e8e8"}]}
+          >
             <TextInput
               autoCorrect={false}
               value={value}
