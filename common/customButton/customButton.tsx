@@ -7,8 +7,8 @@ type BottonProp = {
   onPress: () => void;
   text: string;
   type: string;
-  bgColor: any;
-  fgColor: any;
+  bgColor: string;
+  fgColor: string;
 };
 
 const customButton = ({
@@ -25,15 +25,13 @@ const customButton = ({
         styles.container,
         styles[`container_${type}`],
         bgColor ? {backgroundColor: bgColor} : {},
-      ]}
-    >
+      ]}>
       <Text
         style={[
           styles.text,
           styles[`text_${type}`],
           fgColor ? {color: fgColor} : {},
-        ]}
-      >
+        ]}>
         {text}
       </Text>
     </Pressable>
@@ -52,7 +50,7 @@ const styles = StyleSheet.create({
   },
 
   container_PRIMARY: {
-    backgroundColor: "#3B71F3",
+    backgroundColor: "#009CDE",
   },
 
   container_SECONDARY: {

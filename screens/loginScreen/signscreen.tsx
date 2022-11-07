@@ -1,12 +1,12 @@
 import React from "react";
-import {View, StyleSheet, ScrollView} from "react-native";
+import {View, Text, StyleSheet, ScrollView} from "react-native";
 import CustomInput from "../../common/customInput";
 import CustomButton from "../../common/customButton";
 import SocialBtn from "../../common/sociaButtons/socialBtn";
 import {useNavigation} from "@react-navigation/native";
 import {useForm} from "react-hook-form";
 import {NativeStackNavigationProp} from "@react-navigation/native-stack";
-import {RootStackParamList} from "../../types";
+import {LoginProp, RootStackParamList} from "../../types";
 
 const EMAIL_REGEX =
   /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
@@ -17,16 +17,13 @@ type LoginScreenNavigationType = NativeStackNavigationProp<
 >;
 
 function Signscreen() {
-  const {control, handleSubmit} = useForm({
-    defaultValues: {
-      email: "",
-      password: "",
-    },
-  });
+  const {control, handleSubmit} = useForm<LoginProp>();
 
   const navigation = useNavigation<LoginScreenNavigationType>();
 
-  const SigInPress = () => {
+  const SigInPress = (data: LoginProp) => {
+    console.log(data);
+    alert(data.email);
     navigation.navigate("Home");
   };
 
@@ -41,6 +38,7 @@ function Signscreen() {
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
       <View style={styles.root}>
+        <Text style={styles.titleText}>Login to your account</Text>
         <CustomInput
           placeholder="Email"
           name="email"
@@ -49,14 +47,12 @@ function Signscreen() {
             required: "Email is reqired",
             pattern: {value: EMAIL_REGEX, message: "Email is invalid"},
           }}
-          secureTextEntry={""}
         />
 
         <CustomInput
           placeholder="Password"
           name="password"
           control={control}
-          secureTextEntry
           rules={{
             required: "Password is required",
             minLength: {
@@ -101,11 +97,18 @@ const styles = StyleSheet.create({
     alignItems: "center",
     padding: 20,
   },
-  logo: {
-    marginTop: 12,
-    width: "90%",
-    maxWidth: 500,
-    maxHeight: 400,
+  titleText: {
+    // alignSelf: "flex-start",
+    fontSize: 24,
+    fontWeight: "bold",
+    color: "#051C60",
+    margin: 3,
+  },
+  PText: {
+    alignSelf: "flex-start",
+    marginTop: 15,
+    marginBottom: 15,
+    fontSize: 15,
   },
 });
 

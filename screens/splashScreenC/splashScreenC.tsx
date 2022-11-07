@@ -13,7 +13,7 @@ import {RootStackParamList} from "../../types";
 
 type SplashCScreenNavigationType = NativeStackNavigationProp<
   RootStackParamList,
-  "Welcome"
+  "DropOff"
 >;
 
 function SplashScreenC() {
@@ -21,7 +21,7 @@ function SplashScreenC() {
   const {height} = useWindowDimensions();
 
   const handleOnPress = () => {
-    navigation.navigate("Schedule");
+    navigation.navigate("Login");
   };
 
   return (

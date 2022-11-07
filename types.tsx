@@ -3,12 +3,12 @@
  * https://reactnavigation.org/docs/typescript/
  */
 
-import {BottomTabScreenProps} from "@react-navigation/bottom-tabs";
 import {
   CompositeScreenProps,
   NavigatorScreenParams,
 } from "@react-navigation/native";
 import {NativeStackScreenProps} from "@react-navigation/native-stack";
+import {BottomTabScreenProps} from "@react-navigation/bottom-tabs";
 
 declare global {
   namespace ReactNavigation {
@@ -29,6 +29,7 @@ export type RootStackParamList = {
   ForgotPassword: undefined;
   ResetPassword: undefined;
   Register: undefined;
+  Confirmation: undefined;
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> =
@@ -37,6 +38,7 @@ export type RootStackScreenProps<Screen extends keyof RootStackParamList> =
 export type RootTabParamList = {
   TabOne: undefined;
   TabTwo: undefined;
+  TabThree: undefined;
 };
 
 export type RootTabScreenProps<Screen extends keyof RootTabParamList> =
@@ -44,3 +46,19 @@ export type RootTabScreenProps<Screen extends keyof RootTabParamList> =
     BottomTabScreenProps<RootTabParamList, Screen>,
     NativeStackScreenProps<RootStackParamList>
   >;
+
+export type CustomInputProp = {
+  lastName: string;
+  firstName: string;
+  code: string;
+  password: string;
+  email: string;
+  phoneNumber: string;
+};
+
+export type ConfirmEmailProp = Pick<CustomInputProp, "code">;
+export type LoginProp = Pick<CustomInputProp, "email" | "password">;
+export type RegisterProp = Pick<
+  CustomInputProp,
+  "email" | "password" | "firstName" | "lastName" | "phoneNumber"
+>;

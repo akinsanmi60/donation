@@ -1,15 +1,21 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable prettier/prettier */
-import {View, Text, TextInput, StyleSheet} from "react-native";
 import React from "react";
-import {Controller} from "react-hook-form";
+import {View, Text, TextInput, StyleSheet} from "react-native";
+import {Control, Controller} from "react-hook-form";
 
-const CustomInput = ({
-  control,
-  rules = {},
-  name,
-  placeholder,
-  secureTextEntry,
-}) => {
+export type IMap = {
+  [x: string]: any;
+};
+
+type InputProp = {
+  control: Control<any, object>;
+  name: string;
+  placeholder: string;
+  rules: IMap;
+};
+
+const CustomInput = ({control, rules, name, placeholder}: InputProp) => {
   return (
     <Controller
       control={control}
@@ -18,15 +24,17 @@ const CustomInput = ({
       render={({field: {value, onChange, onBlur}, fieldState: {error}}) => (
         <>
           <View
-            style={[styles.container, {borderColor: error ? "red" : "#e8e8e8"}]}
-          >
+            style={[
+              styles.container,
+              {borderColor: error ? "red" : "#e8e8e8"},
+            ]}>
             <TextInput
+              autoCorrect={false}
               value={value}
               onChangeText={onChange}
               onBlur={onBlur}
               placeholder={placeholder}
               style={styles.input}
-              secureTextEntry={secureTextEntry}
             />
           </View>
           {error && (

@@ -17,6 +17,8 @@ import {
   RootTabParamList,
   RootTabScreenProps,
 } from "../types";
+
+//Screens
 import ModalScreen from "../screens/ModalScreen";
 import NotFoundScreen from "../screens/NotFoundScreen";
 import TabOneScreen from "../screens/TabOneScreen";
@@ -25,6 +27,10 @@ import SplashScreenA from "../screens/splashScreenA/splashScreenA";
 import LauchScreen from "../screens/launchScreen";
 import SplashScreenB from "../screens/splashScreenB/splashScreenB";
 import SplashScreenC from "../screens/splashScreenC/splashScreenC";
+import Signscreen from "../screens/loginScreen/signscreen";
+import SignUpScreen from "../screens/signup/signupscreen";
+import ConfirmEmailScreen from "../screens/confirmEmail/confirmEmail";
+import HomeScreen from "../screens/homeScreen/homescreen";
 
 import LinkingConfiguration from "./LinkingConfiguration";
 
@@ -67,8 +73,23 @@ function RootNavigator() {
       />
       <Stack.Screen
         name="Login"
-        component={SplashScreenC}
-        options={{headerShown: false}}
+        component={Signscreen}
+        options={{headerShown: true}}
+      />
+      <Stack.Screen
+        name="Register"
+        component={SignUpScreen}
+        options={{headerShown: true}}
+      />
+      <Stack.Screen
+        name="Confirmation"
+        component={ConfirmEmailScreen}
+        options={{headerShown: true}}
+      />
+      <Stack.Screen
+        name="Home"
+        component={HomeScreen}
+        options={{headerShown: true}}
       />
       <Stack.Screen
         name="Root"
@@ -101,21 +122,21 @@ function BottomTabNavigator() {
       initialRouteName="TabOne"
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme].tint,
-      }}
-    >
+      }}>
       <BottomTab.Screen
         name="TabOne"
         component={TabOneScreen}
         options={({navigation}: RootTabScreenProps<"TabOne">) => ({
           title: "Tab One",
-          tabBarIcon: ({color}) => <TabBarIcon name="code" color={color} />,
+          tabBarIcon: ({color}: {color: string}) => (
+            <TabBarIcon name="code" color={color} />
+          ),
           headerRight: () => (
             <Pressable
               onPress={() => navigation.navigate("Modal")}
               style={({pressed}) => ({
                 opacity: pressed ? 0.5 : 1,
-              })}
-            >
+              })}>
               <FontAwesome
                 name="info-circle"
                 size={25}
@@ -131,7 +152,9 @@ function BottomTabNavigator() {
         component={TabTwoScreen}
         options={{
           title: "Tab Two",
-          tabBarIcon: ({color}) => <TabBarIcon name="code" color={color} />,
+          tabBarIcon: ({color}: {color: string}) => (
+            <TabBarIcon name="code" color={color} />
+          ),
         }}
       />
     </BottomTab.Navigator>
