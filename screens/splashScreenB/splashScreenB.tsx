@@ -9,6 +9,8 @@ import {
   useWindowDimensions,
   TouchableOpacity,
 } from "react-native";
+import {Ionicons} from "@expo/vector-icons";
+
 import {RootStackParamList} from "../../types";
 
 type SplashBScreenNavigationType = NativeStackNavigationProp<
@@ -43,7 +45,13 @@ function SplashScreenB() {
       <View style={styles.round1}>
         <TouchableOpacity onPress={handleOnPress}>
           <View style={styles.round2}>
-            <Text style={styles.btnP}>{">"}</Text>
+            <Text style={styles.btnP}>
+              <Ionicons
+                name="md-caret-forward-outline"
+                size={30}
+                color="white"
+              />
+            </Text>
           </View>
         </TouchableOpacity>
       </View>
@@ -82,8 +90,8 @@ const styles = StyleSheet.create({
   round1: {
     borderWidth: 2,
     borderRadius: 100,
-    width: 100,
-    height: 100,
+    width: 90,
+    height: 90,
     alignItems: "center",
     justifyContent: "center",
   },

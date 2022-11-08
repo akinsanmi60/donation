@@ -3,14 +3,19 @@
  * https://reactnavigation.org/docs/getting-started
  *
  */
-import {FontAwesome} from "@expo/vector-icons";
+import * as React from "react";
+import {
+  Entypo,
+  FontAwesome,
+  Ionicons,
+  MaterialCommunityIcons,
+} from "@expo/vector-icons";
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 import {NavigationContainer} from "@react-navigation/native";
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
-import * as React from "react";
 import {Pressable} from "react-native";
-import Colors from "../constants/Colors";
-import useColorScheme from "../hooks/useColorScheme";
+// import Colors from "../constants/Colors";
+// import useColorScheme from "../hooks/useColorScheme";
 
 import {
   RootStackParamList,
@@ -21,8 +26,6 @@ import {
 //Screens
 import ModalScreen from "../screens/ModalScreen";
 import NotFoundScreen from "../screens/NotFoundScreen";
-import TabOneScreen from "../screens/TabOneScreen";
-import TabTwoScreen from "../screens/TabTwoScreen";
 import SplashScreenA from "../screens/splashScreenA/splashScreenA";
 import LauchScreen from "../screens/launchScreen";
 import SplashScreenB from "../screens/splashScreenB/splashScreenB";
@@ -31,7 +34,12 @@ import Signscreen from "../screens/loginScreen/signscreen";
 import SignUpScreen from "../screens/signup/signupscreen";
 import ConfirmEmailScreen from "../screens/confirmEmail/confirmEmail";
 import HomeScreen from "../screens/homeScreen/homescreen";
-
+import ForgotPasswordScreen from "../screens/forgotPassword/forgotPassword";
+import NewPasswordScreen from "../screens/newPassword/newPassword";
+import PickupScreen from "../screens/pickups/pickupscreen";
+import CommunityScreen from "../screens/community/communityscreen";
+import TellAFriendScreen from "../screens/tellFriend/tellFriendscreen";
+import MoreScreen from "../screens/more/morescreen";
 import LinkingConfiguration from "./LinkingConfiguration";
 
 export default function Navigation() {
@@ -87,8 +95,18 @@ function RootNavigator() {
         options={{headerShown: true}}
       />
       <Stack.Screen
-        name="Home"
-        component={HomeScreen}
+        name="HomeScreen"
+        component={BottomTabNavigator}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="ResetPassword"
+        component={NewPasswordScreen}
+        options={{headerShown: true}}
+      />
+      <Stack.Screen
+        name="ForgotPassword"
+        component={ForgotPasswordScreen}
         options={{headerShown: true}}
       />
       <Stack.Screen
@@ -115,22 +133,27 @@ function RootNavigator() {
 const BottomTab = createBottomTabNavigator<RootTabParamList>();
 
 function BottomTabNavigator() {
-  const colorScheme = useColorScheme();
+  // const colorScheme = useColorScheme();
 
   return (
     <BottomTab.Navigator
-      initialRouteName="TabOne"
+      initialRouteName="Home"
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme].tint,
+        // tabBarStyle: {position: "absolute"}, it enable to see screen beneath the tab
+        tabBarActiveTintColor: "white",
+        tabBarActiveBackgroundColor: "#FE581E",
+        tabBarInactiveTintColor: "blue",
       }}
     >
       <BottomTab.Screen
-        name="TabOne"
-        component={TabOneScreen}
-        options={({navigation}: RootTabScreenProps<"TabOne">) => ({
-          title: "Tab One",
+        name="Home"
+        component={HomeScreen}
+        options={({navigation}: RootTabScreenProps<"Home">) => ({
+          headerShown: false,
+          headerShadow: false,
+          // title: "Home",
           tabBarIcon: ({color}: {color: string}) => (
-            <TabBarIcon name="code" color={color} />
+            <TabBarIcon name="home" color={color} />
           ),
           headerRight: () => (
             <Pressable
@@ -142,20 +165,51 @@ function BottomTabNavigator() {
               <FontAwesome
                 name="info-circle"
                 size={25}
-                color={Colors[colorScheme].text}
+                color="black"
                 style={{marginRight: 15}}
               />
             </Pressable>
           ),
         })}
       />
+
       <BottomTab.Screen
-        name="TabTwo"
-        component={TabTwoScreen}
+        name="PickUp"
+        component={PickupScreen}
         options={{
-          title: "Tab Two",
+          title: "Pickups",
           tabBarIcon: ({color}: {color: string}) => (
-            <TabBarIcon name="code" color={color} />
+            <TabBarIcon name="truck-fast" color={color} />
+          ),
+        }}
+      />
+      <BottomTab.Screen
+        name="TellFriend"
+        component={TellAFriendScreen}
+        options={{
+          title: "Tell a friend ",
+          tabBarIcon: ({color}: {color: string}) => (
+            <Entypo name="sound" size={24} color={color} />
+          ),
+        }}
+      />
+      <BottomTab.Screen
+        name="Community"
+        component={CommunityScreen}
+        options={{
+          title: "Community",
+          tabBarIcon: ({color}: {color: string}) => (
+            <Ionicons name="ios-people-sharp" size={24} color={color} />
+          ),
+        }}
+      />
+      <BottomTab.Screen
+        name="More"
+        component={MoreScreen}
+        options={{
+          title: "More",
+          tabBarIcon: ({color}: {color: string}) => (
+            <TabBarIcon name="dots-vertical" color={color} />
           ),
         }}
       />
@@ -167,8 +221,10 @@ function BottomTabNavigator() {
  * You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
  */
 function TabBarIcon(props: {
-  name: React.ComponentProps<typeof FontAwesome>["name"];
+  name: React.ComponentProps<typeof MaterialCommunityIcons>["name"];
   color: string;
 }) {
-  return <FontAwesome size={30} style={{marginBottom: -3}} {...props} />;
+  return (
+    <MaterialCommunityIcons size={30} style={{marginBottom: -3}} {...props} />
+  );
 }

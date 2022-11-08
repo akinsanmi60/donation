@@ -25,7 +25,7 @@ export type RootStackParamList = {
   Schedule: undefined;
   DropOff: undefined;
   Login: undefined;
-  Home: undefined;
+  HomeScreen: undefined;
   ForgotPassword: undefined;
   ResetPassword: undefined;
   Register: undefined;
@@ -36,9 +36,11 @@ export type RootStackScreenProps<Screen extends keyof RootStackParamList> =
   NativeStackScreenProps<RootStackParamList, Screen>;
 
 export type RootTabParamList = {
-  TabOne: undefined;
-  TabTwo: undefined;
-  TabThree: undefined;
+  Home: undefined;
+  PickUp: undefined;
+  TellFriend: undefined;
+  Community: undefined;
+  More: undefined;
 };
 
 export type RootTabScreenProps<Screen extends keyof RootTabParamList> =
@@ -54,10 +56,17 @@ export type CustomInputProp = {
   password: string;
   email: string;
   phoneNumber: string;
+  newPassword: string;
+  confirmPassword: string;
 };
 
 export type ConfirmEmailProp = Pick<CustomInputProp, "code">;
 export type LoginProp = Pick<CustomInputProp, "email" | "password">;
+export type ForgetProp = Pick<CustomInputProp, "email">;
+export type ResetProp = Pick<
+  CustomInputProp,
+  "code" | "newPassword" | "confirmPassword"
+>;
 export type RegisterProp = Pick<
   CustomInputProp,
   "email" | "password" | "firstName" | "lastName" | "phoneNumber"

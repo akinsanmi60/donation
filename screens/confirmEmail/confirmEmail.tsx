@@ -42,16 +42,14 @@ const ConfirmEmailScreen = () => {
         <CustomButton
           text="Confirm"
           onPress={handleSubmit(onConfirmPressed)}
-          type="PRIMARY"
-          bgColor={""}
-          fgColor={""}
+          bgColor="#009CDE"
+          fgColor="white"
         />
         <CustomButton
           text="Resend code"
           onPress={onResendPress}
-          type="SECONDARY"
-          bgColor={""}
-          fgColor={""}
+          bgColor="transparent"
+          fgColor="#3B71F3"
         />
       </View>
     </ScrollView>

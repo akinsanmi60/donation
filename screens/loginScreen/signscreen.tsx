@@ -24,7 +24,7 @@ function Signscreen() {
   const SigInPress = (data: LoginProp) => {
     console.log(data);
     alert(data.email);
-    navigation.navigate("Home");
+    navigation.navigate("HomeScreen");
   };
 
   const ForgotPress = () => {
@@ -65,17 +65,15 @@ function Signscreen() {
         <CustomButton
           text="Log In"
           onPress={handleSubmit(SigInPress)}
-          bgColor={""}
-          fgColor={""}
-          type="PRIMARY"
+          bgColor="#009CDE"
+          fgColor="white"
         />
 
         <CustomButton
           text="Forgot Password"
           onPress={ForgotPress}
-          type="TERTIARY"
-          bgColor={""}
-          fgColor={""}
+          fgColor="gray"
+          bgColor="transparent"
         />
 
         <SocialBtn />
@@ -83,9 +81,8 @@ function Signscreen() {
         <CustomButton
           text="Don't have an account? Create one"
           onPress={SignUpPress}
-          type="TERTIARY"
-          bgColor={""}
-          fgColor={""}
+          fgColor="gray"
+          bgColor="transparent"
         />
       </View>
     </ScrollView>

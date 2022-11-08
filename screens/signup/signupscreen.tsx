@@ -29,6 +29,9 @@ const SignUpScreen = () => {
   const SignInPress = () => {
     navigation.navigate("Login");
   };
+  const HomePress = () => {
+    navigation.navigate("HomeScreen");
+  };
 
   const onTermsOfUsePressed = () => {
     console.warn("onTermsOfUsePressed");
@@ -118,9 +121,8 @@ const SignUpScreen = () => {
         <CustomButton
           text="Register"
           onPress={handleSubmit(onRegisterPressed)}
-          type="PRIMARY"
-          bgColor={""}
-          fgColor={""}
+          bgColor="#009CDE"
+          fgColor="white"
         />
 
         <Text style={styles.text}>
@@ -139,11 +141,19 @@ const SignUpScreen = () => {
         <CustomButton
           text="Have an account? Log in"
           onPress={SignInPress}
-          type="TERTIARY"
-          bgColor={""}
-          fgColor={""}
+          fgColor="gray"
+          bgColor="transparent"
         />
       </View>
+
+      <Text style={styles.PText}>Or</Text>
+
+      <CustomButton
+        text="SKIP TO DONATION"
+        onPress={HomePress}
+        fgColor="gray"
+        bgColor="transparent"
+      />
     </ScrollView>
   );
 };
@@ -165,6 +175,13 @@ const styles = StyleSheet.create({
   },
   link: {
     color: "#FDB075",
+  },
+  PText: {
+    alignSelf: "center",
+    marginVertical: 2,
+    color: "gray",
+
+    fontSize: 20,
   },
 });
 
