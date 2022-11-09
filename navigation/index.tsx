@@ -141,8 +141,8 @@ function BottomTabNavigator() {
       screenOptions={{
         // tabBarStyle: {position: "absolute"}, it enable to see screen beneath the tab
         tabBarActiveTintColor: "white",
-        tabBarActiveBackgroundColor: "#FE581E",
-        tabBarInactiveTintColor: "blue",
+        tabBarActiveBackgroundColor: "#009CDE",
+        tabBarInactiveTintColor: "#009CDE",
       }}
     >
       <BottomTab.Screen

@@ -4,7 +4,6 @@ import {
   Text,
   View,
   TextInput,
-  // Image,
   Pressable,
   ScrollView,
 } from "react-native";
@@ -83,10 +82,8 @@ function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // backgroundColor: "blue",
     marginTop: 25,
     paddingTop: 15,
-    // paddingLeft: 15,
   },
   box: {
     padding: 15,

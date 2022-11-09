@@ -28,7 +28,7 @@ function SplashScreenC() {
   return (
     <View style={styles.root}>
       <Image
-        source={require("../../assets/new-assets/Group76.png")}
+        source={require("../../assets/new-assets/Address.png")}
         style={[styles.logo, {height: height * 0.5}]}
         resizeMode="contain"
       />

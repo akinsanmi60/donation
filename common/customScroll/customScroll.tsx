@@ -28,37 +28,39 @@ function CustomScrollView({data}: ScrollProp) {
         snapToOffsets={data.map((item, i) => i * (width - 60))}
         snapToAlignment={"start"}
       >
-        {data.map(item => (
-          <View
-            key={item.name}
-            style={[styles.view, {backgroundColor: "#F7FCFE"}]}
-          >
-            <Image
-              style={styles.img}
-              source={require("../../assets/new-assets/ben-white.jpg")}
-            />
-            <View style={styles.box}>
-              <Text style={styles.ptext}>
-                Help cloth <Text style={styles.intext}>{item.name}</Text>
-              </Text>
-              <Text style={styles.ptext2}>
-                Estimated Cloth-size: <Text>{item.size}</Text>
-              </Text>
-              <Text style={styles.ptext}>Total Contribution: 50</Text>
-              <View style={styles.action}>
-                <CustomButton
-                  text="DONATE"
-                  bgColor="#009CDE"
-                  fgColor="white"
-                  wdSize="65%"
-                />
-                <Text style={styles.boxicon}>
-                  <FontAwesome5 name="heart" size={40} style={styles.icon} />
+        {data.map(item => {
+          return (
+            <View
+              key={item.name}
+              style={[styles.view, {backgroundColor: "#F7FCFE"}]}
+            >
+              <Image
+                style={styles.img}
+                source={require("../../assets/new-assets/ben-white.jpg")}
+              />
+              <View style={styles.box}>
+                <Text style={styles.ptext}>
+                  Help cloth <Text style={styles.intext}>{item.name}</Text>
                 </Text>
+                <Text style={styles.ptext2}>
+                  Estimated Cloth-size: <Text>{item.size}</Text>
+                </Text>
+                <Text style={styles.ptext}>Total Contribution: 50</Text>
+                <View style={styles.action}>
+                  <CustomButton
+                    text="DONATE"
+                    bgColor="#009CDE"
+                    fgColor="white"
+                    wdSize="65%"
+                  />
+                  <Text style={styles.boxicon}>
+                    <FontAwesome5 name="heart" size={40} style={styles.icon} />
+                  </Text>
+                </View>
               </View>
             </View>
-          </View>
-        ))}
+          );
+        })}
       </ScrollView>
     </View>
   );

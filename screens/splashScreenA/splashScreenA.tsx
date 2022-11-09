@@ -31,7 +31,7 @@ function SplashScreenA() {
       </TouchableOpacity>
 
       <Image
-        source={require("../../assets/new-assets/Group76.png")}
+        source={require("../../assets/new-assets/Charitymarket-pana.png")}
         style={[styles.logo, {height: height * 0.4}]}
         resizeMode="contain"
       />
@@ -83,7 +83,6 @@ const styles = StyleSheet.create({
     fontWeight: "500",
     marginTop: 10,
     marginBottom: 13,
-
     textAlign: "center",
   },
   body: {
