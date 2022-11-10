@@ -30,6 +30,7 @@ export type RootStackParamList = {
   ResetPassword: undefined;
   Register: undefined;
   Confirmation: undefined;
+  SelectMedium: undefined;
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> =

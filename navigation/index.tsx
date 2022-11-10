@@ -4,12 +4,7 @@
  *
  */
 import * as React from "react";
-import {
-  Entypo,
-  FontAwesome,
-  Ionicons,
-  MaterialCommunityIcons,
-} from "@expo/vector-icons";
+import {Entypo, Ionicons, MaterialCommunityIcons} from "@expo/vector-icons";
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 import {NavigationContainer} from "@react-navigation/native";
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
@@ -39,6 +34,7 @@ import NewPasswordScreen from "../screens/newPassword/newPassword";
 import PickupScreen from "../screens/pickups/pickupscreen";
 import CommunityScreen from "../screens/community/communityscreen";
 import TellAFriendScreen from "../screens/tellFriend/tellFriendscreen";
+import SelectMediumScreen from "../screens/selectMedium/selectMedium";
 import MoreScreen from "../screens/more/morescreen";
 import LinkingConfiguration from "./LinkingConfiguration";
 
@@ -110,6 +106,11 @@ function RootNavigator() {
         options={{headerShown: true}}
       />
       <Stack.Screen
+        name="SelectMedium"
+        component={SelectMediumScreen}
+        options={{headerShown: true}}
+      />
+      <Stack.Screen
         name="Root"
         component={BottomTabNavigator}
         options={{headerShown: false}}
@@ -148,60 +149,88 @@ function BottomTabNavigator() {
       <BottomTab.Screen
         name="Home"
         component={HomeScreen}
-        options={({navigation}: RootTabScreenProps<"Home">) => ({
+        options={{
           headerShown: false,
-          headerShadow: false,
-          // title: "Home",
           tabBarIcon: ({color}: {color: string}) => (
             <TabBarIcon name="home" color={color} />
           ),
-          headerRight: () => (
-            <Pressable
-              onPress={() => navigation.navigate("Modal")}
-              style={({pressed}) => ({
-                opacity: pressed ? 0.5 : 1,
-              })}
-            >
-              <FontAwesome
-                name="info-circle"
-                size={25}
-                color="black"
-                style={{marginRight: 15}}
-              />
-            </Pressable>
-          ),
-        })}
+        }}
       />
 
       <BottomTab.Screen
         name="PickUp"
         component={PickupScreen}
-        options={{
-          title: "Pickups",
-          tabBarIcon: ({color}: {color: string}) => (
+        options={({navigation}: RootTabScreenProps<"PickUp">) => ({
+          title: "Pick Up",
+          tabBarIcon: ({color}) => (
             <TabBarIcon name="truck-fast" color={color} />
           ),
-        }}
+          headerLeft: () => (
+            <Pressable
+              onPress={() => navigation.goBack()}
+              style={({pressed}) => ({
+                opacity: pressed ? 0.5 : 1,
+              })}
+            >
+              <Ionicons
+                name="arrow-back"
+                size={24}
+                color="black"
+                style={{marginLeft: 15}}
+              />
+            </Pressable>
+          ),
+        })}
       />
       <BottomTab.Screen
         name="TellFriend"
         component={TellAFriendScreen}
-        options={{
+        options={({navigation}: RootTabScreenProps<"TellFriend">) => ({
           title: "Tell a friend ",
           tabBarIcon: ({color}: {color: string}) => (
             <Entypo name="sound" size={24} color={color} />
           ),
-        }}
+          headerLeft: () => (
+            <Pressable
+              onPress={() => navigation.goBack()}
+              style={({pressed}) => ({
+                opacity: pressed ? 0.5 : 1,
+              })}
+            >
+              <Ionicons
+                name="arrow-back"
+                size={24}
+                color="black"
+                style={{marginLeft: 15}}
+              />
+            </Pressable>
+          ),
+        })}
       />
       <BottomTab.Screen
         name="Community"
         component={CommunityScreen}
-        options={{
+        options={({navigation}: RootTabScreenProps<"Community">) => ({
           title: "Community",
           tabBarIcon: ({color}: {color: string}) => (
             <Ionicons name="ios-people-sharp" size={24} color={color} />
           ),
-        }}
+          headerLeft: () => (
+            <Pressable
+              onPress={() => navigation.goBack()}
+              style={({pressed}) => ({
+                opacity: pressed ? 0.5 : 1,
+              })}
+            >
+              <Ionicons
+                name="arrow-back"
+                size={24}
+                color="black"
+                style={{marginLeft: 15}}
+              />
+            </Pressable>
+          ),
+        })}
       />
       <BottomTab.Screen
         name="More"

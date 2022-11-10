@@ -1,1 +1,1 @@
-export {default} from "./tellFriend";
+export {default} from "./tellFriendscreen";

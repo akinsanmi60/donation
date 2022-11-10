@@ -12,9 +12,18 @@ import CustomButton from "../../common/customButton";
 import {Avatar} from "@react-native-material/core";
 import {Ionicons} from "@expo/vector-icons";
 import {friendData} from "./data";
+import {useNavigation} from "@react-navigation/native";
+import {NativeStackNavigationProp} from "@react-navigation/native-stack";
+import {RootStackParamList} from "../../types";
 
 function TellAFriendScreen() {
   const {height} = useWindowDimensions();
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+
+  const handlePress = () => {
+    navigation.navigate("SelectMedium");
+  };
 
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
@@ -24,7 +33,12 @@ function TellAFriendScreen() {
           style={[styles.logo, {height: height * 0.4}]}
           resizeMode="contain"
         />
-        <CustomButton text="INVITE FRIEND" bgColor="#009CDE" fgColor="white" />
+        <CustomButton
+          text="INVITE FRIEND"
+          bgColor="#009CDE"
+          fgColor="white"
+          onPress={handlePress}
+        />
         <Text style={styles.PText}>Invited</Text>
         <>
           {friendData.map((item, i) => (
@@ -47,6 +61,7 @@ function TellAFriendScreen() {
               </View>
 
               <Pressable
+                onPress={handlePress}
                 style={[styles.btncontainer, {backgroundColor: "#009CDE"}]}
               >
                 <Text style={{color: "white"}}>Resend</Text>
@@ -98,7 +113,7 @@ const styles = StyleSheet.create({
     fontWeight: "600",
   },
   btncontainer: {
-    width: "29%",
+    width: 100,
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 5,
