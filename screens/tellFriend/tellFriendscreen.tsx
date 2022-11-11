@@ -46,7 +46,7 @@ function TellAFriendScreen() {
               <View style={styles.rowDetail}>
                 <Avatar
                   size={40}
-                  label="Jed Watson"
+                  label={item.name}
                   icon={props => <Ionicons name="person" {...props} />}
                   image={{uri: item.avatar}}
                   autoColor
