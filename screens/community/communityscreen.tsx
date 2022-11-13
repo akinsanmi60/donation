@@ -17,21 +17,36 @@ import {
   Octicons,
 } from "@expo/vector-icons";
 import {comData} from "./data";
+import {useNavigation} from "@react-navigation/native";
+import {NativeStackNavigationProp} from "@react-navigation/native-stack";
+import {RootStackParamList} from "../../types";
 
 function CommunityScreen() {
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+
+  const pressDonor = () => {
+    navigation.navigate("FellowDonor");
+  };
   const handlePress = () => {
     // navigation.navigate("SelectMedium");
+    // navigation.navigate("TellFriend");
   };
   const subBtn = [
     {
-      icon: "bulb-outline",
       title: "Clothing tips",
       click: handlePress,
+      icon: <Ionicons name="bulb-outline" size={20} color="#009CDE" />,
     },
     {
-      icon: "people-circle-outline",
       title: "Find fellow",
-      click: handlePress,
+      click: pressDonor,
+      icon: <Ionicons name="people-circle-outline" size={20} color="#009CDE" />,
+    },
+    {
+      title: "Tell a friend",
+      click: pressDonor,
+      icon: <Entypo name="sound" size={20} color="#009CDE" />,
     },
   ];
   return (
@@ -89,7 +104,7 @@ function CommunityScreen() {
                 onPress={item.click}
                 style={styles.rowDetail}
               >
-                <Ionicons name={item.icon} size={20} color="#009CDE" />
+                {item.icon}
                 <Text
                   style={{
                     fontSize: 15,
@@ -102,12 +117,6 @@ function CommunityScreen() {
               </Pressable>
             );
           })}
-          <Pressable onPress={handlePress} style={styles.rowDetail}>
-            <Entypo name="sound" size={20} color="#009CDE" />
-            <Text style={{fontSize: 15, color: "#009CDE", marginHorizontal: 2}}>
-              Tell A friend
-            </Text>
-          </Pressable>
         </View>
 
         <View style={styles.boxBanner}>
@@ -141,10 +150,7 @@ function CommunityScreen() {
               </View>
             </View>
             <Text style={styles.postDesc}>{item.description}</Text>
-            <Image
-              style={styles.postImg}
-              source={require("../../assets/new-assets/edmund.jpg")}
-            />
+            <Image style={styles.postImg} source={item.image} />
 
             <View style={styles.postIconBox}>
               <View style={styles.boxIcon}>

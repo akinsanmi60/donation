@@ -5,7 +5,7 @@ export const comData = [
     location: "Niger, Nigeria",
     description:
       " Ive never been this excited, i made my first donation today.",
-    image: "",
+    image: require("../../assets/new-assets/edmund.jpg"),
     likes: "20",
     comment: "50",
   },
@@ -15,7 +15,7 @@ export const comData = [
     location: "Ibadan, Nigeria",
     description:
       " Ive never been this excited, i made my first donation today.",
-    image: "",
+    image: require("../../assets/new-assets/austin.jpg"),
     likes: "120",
     comment: "10",
   },
@@ -25,7 +25,7 @@ export const comData = [
     location: "Lagos, Portugal",
     description:
       " Ive never been this excited, i made my first donation today.",
-    image: "",
+    image: require("../../assets/new-assets/katie.jpg"),
     likes: "80",
     comment: "10",
   },
@@ -35,7 +35,7 @@ export const comData = [
     location: "Tronto , Cananda",
     description:
       " Ive never been this excited, i made my first donation today.",
-    image: "",
+    image: require("../../assets/new-assets/edmund.jpg"),
     likes: "80",
     comment: "10",
   },

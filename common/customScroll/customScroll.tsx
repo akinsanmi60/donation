@@ -34,10 +34,7 @@ function CustomScrollView({data}: ScrollProp) {
               key={item.name}
               style={[styles.view, {backgroundColor: "#F7FCFE"}]}
             >
-              <Image
-                style={styles.img}
-                source={require("../../assets/new-assets/ben-white.jpg")}
-              />
+              <Image style={styles.img} source={item.image} />
               <View style={styles.box}>
                 <Text style={styles.ptext}>
                   Help cloth <Text style={styles.intext}>{item.name}</Text>

@@ -6,6 +6,7 @@ import {
   TextInput,
   Pressable,
   ScrollView,
+  SafeAreaView,
 } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import {Avatar} from "@react-native-material/core";
@@ -14,68 +15,70 @@ import {individualData} from "./data";
 
 function HomeScreen() {
   return (
-    <ScrollView showsVerticalScrollIndicator={false}>
-      <View style={styles.container}>
-        <View style={styles.box}>
-          <View style={styles.rowBox}>
-            <View>
-              <Text>Hi</Text>
-              <Text style={styles.titleName}>Akinsanmi</Text>
+    <SafeAreaView>
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <View style={styles.container}>
+          <View style={styles.box}>
+            <View style={styles.rowBox}>
+              <View>
+                <Text>Hi</Text>
+                <Text style={styles.titleName}>Akinsanmi</Text>
+              </View>
+              <View style={styles.rowDetail}>
+                <Ionicons
+                  name="ios-notifications-outline"
+                  size={32}
+                  color="green"
+                  style={styles.icons}
+                />
+                <Avatar
+                  size={32}
+                  label="Jed Watson"
+                  icon={props => <Ionicons name="person" {...props} />}
+                  image={{uri: "https://mui.com/static/images/avatar/1.jpg"}}
+                  autoColor
+                />
+              </View>
             </View>
-            <View style={styles.rowDetail}>
-              <Ionicons
-                name="ios-notifications-outline"
-                size={32}
-                color="green"
-                style={styles.icons}
-              />
-              <Avatar
-                size={32}
-                label="Jed Watson"
-                icon={props => <Ionicons name="person" {...props} />}
-                image={{uri: "https://mui.com/static/images/avatar/1.jpg"}}
-                autoColor
-              />
+            <Text style={styles.hText}>Put a smile on a face by donating</Text>
+            <View style={styles.filterBox}>
+              <View style={styles.inputBox}>
+                <Ionicons
+                  name="search-outline"
+                  size={24}
+                  color="black"
+                  style={styles.glass}
+                />
+                <TextInput placeholder="Search donation for oppurtunity" />
+              </View>
+              <Pressable>
+                <Ionicons
+                  name="md-filter-outline"
+                  size={30}
+                  color="black"
+                  style={styles.filterBtn}
+                />
+              </Pressable>
             </View>
           </View>
-          <Text style={styles.hText}>Put a smile on a face by donating</Text>
-          <View style={styles.filterBox}>
-            <View style={styles.inputBox}>
-              <Ionicons
-                name="search-outline"
-                size={24}
-                color="black"
-                style={styles.glass}
-              />
-              <TextInput placeholder="Search donation for oppurtunity" />
-            </View>
-            <Pressable>
-              <Ionicons
-                name="md-filter-outline"
-                size={30}
-                color="black"
-                style={styles.filterBtn}
-              />
-            </Pressable>
+
+          <View style={styles.view}>
+            <Text style={styles.donationBox}>Donation for Individuals</Text>
+            <CustomScrollView data={individualData} />
+          </View>
+
+          <View style={styles.view}>
+            <Text style={styles.donationBox}>Donation to NGO'S</Text>
+            <CustomScrollView data={individualData} />
+          </View>
+
+          <View style={styles.view}>
+            <Text style={styles.donationBox}>Community Project</Text>
+            <CustomScrollView data={individualData} />
           </View>
         </View>
-
-        <View style={styles.view}>
-          <Text style={styles.donationBox}>Donation for Individuals</Text>
-          <CustomScrollView data={individualData} />
-        </View>
-
-        <View style={styles.view}>
-          <Text style={styles.donationBox}>Donation to NGO'S</Text>
-          <CustomScrollView data={individualData} />
-        </View>
-
-        <View style={styles.view}>
-          <Text style={styles.donationBox}>Community Project</Text>
-          <CustomScrollView data={individualData} />
-        </View>
-      </View>
-    </ScrollView>
+      </ScrollView>
+    </SafeAreaView>
   );
 }
 

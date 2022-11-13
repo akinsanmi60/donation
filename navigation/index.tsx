@@ -35,6 +35,7 @@ import PickupScreen from "../screens/pickups/pickupscreen";
 import CommunityScreen from "../screens/community/communityscreen";
 import TellAFriendScreen from "../screens/tellFriend/tellFriendscreen";
 import SelectMediumScreen from "../screens/selectMedium/selectMedium";
+import FellowDonorScreen from "../screens/fellowDonor/fellowDonorscreen";
 import MoreScreen from "../screens/more/morescreen";
 import LinkingConfiguration from "./LinkingConfiguration";
 
@@ -78,17 +79,17 @@ function RootNavigator() {
       <Stack.Screen
         name="Login"
         component={Signscreen}
-        options={{headerShown: true}}
+        options={{headerShown: true, title: "Login"}}
       />
       <Stack.Screen
         name="Register"
         component={SignUpScreen}
-        options={{headerShown: true}}
+        options={{headerShown: true, title: "Register"}}
       />
       <Stack.Screen
         name="Confirmation"
         component={ConfirmEmailScreen}
-        options={{headerShown: true}}
+        options={{headerShown: true, title: "Confirmation"}}
       />
       <Stack.Screen
         name="HomeScreen"
@@ -98,17 +99,22 @@ function RootNavigator() {
       <Stack.Screen
         name="ResetPassword"
         component={NewPasswordScreen}
-        options={{headerShown: true}}
+        options={{headerShown: true, title: "Reset Password"}}
       />
       <Stack.Screen
         name="ForgotPassword"
         component={ForgotPasswordScreen}
-        options={{headerShown: true}}
+        options={{headerShown: true, title: "Forgot Password"}}
       />
       <Stack.Screen
         name="SelectMedium"
         component={SelectMediumScreen}
-        options={{headerShown: true}}
+        options={{headerShown: true, title: "Select Medium"}}
+      />
+      <Stack.Screen
+        name="FellowDonor"
+        component={FellowDonorScreen}
+        options={{headerShown: true, title: "Fellow Donor Near-By"}}
       />
       <Stack.Screen
         name="Root"
