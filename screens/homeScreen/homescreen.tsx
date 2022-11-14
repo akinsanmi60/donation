@@ -61,7 +61,6 @@ function HomeScreen() {
               </Pressable>
             </View>
           </View>
-
           <View style={styles.view}>
             <Text style={styles.donationBox}>Donation for Individuals</Text>
             <CustomScrollView data={individualData} />
@@ -85,8 +84,8 @@ function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 25,
-    paddingTop: 15,
+    paddingTop: 20,
+    backgroundColor: "#FFFFFF",
   },
   box: {
     padding: 15,

@@ -27,6 +27,8 @@ function CustomScrollView({data}: ScrollProp) {
         decelerationRate={5}
         snapToOffsets={data.map((item, i) => i * (width - 60))}
         snapToAlignment={"start"}
+        showsVerticalScrollIndicator={false}
+        showsHorizontalScrollIndicator={false}
       >
         {data.map(item => {
           return (

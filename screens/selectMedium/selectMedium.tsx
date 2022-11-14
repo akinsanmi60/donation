@@ -82,8 +82,10 @@ export default SelectMediumScreen;
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     padding: 15,
     paddingBottom: 9,
+    backgroundColor: "#FFFFFF",
   },
   logo: {
     width: "100%",

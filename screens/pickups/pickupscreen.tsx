@@ -59,6 +59,7 @@ const styles = StyleSheet.create({
   container: {
     padding: 15,
     paddingBottom: 0,
+    backgroundColor: "#FFFFFF",
   },
   titleBox: {
     flexDirection: "row",

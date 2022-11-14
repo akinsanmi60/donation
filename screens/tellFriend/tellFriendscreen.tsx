@@ -80,6 +80,7 @@ const styles = StyleSheet.create({
   container: {
     padding: 15,
     paddingBottom: 9,
+    backgroundColor: "#FFFFFF",
   },
   logo: {
     width: "100%",

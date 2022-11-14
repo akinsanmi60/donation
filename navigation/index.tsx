@@ -37,6 +37,11 @@ import TellAFriendScreen from "../screens/tellFriend/tellFriendscreen";
 import SelectMediumScreen from "../screens/selectMedium/selectMedium";
 import FellowDonorScreen from "../screens/fellowDonor/fellowDonorscreen";
 import MoreScreen from "../screens/more/morescreen";
+import FavouriteScreen from "../screens/favouriteScreen/favourite";
+import DonationScreen from "../screens/donationScreen/donation";
+import RewardScreen from "../screens/rewardScreen/reward";
+import FollowUpScreen from "../screens/followUpScreen/follow";
+
 import LinkingConfiguration from "./LinkingConfiguration";
 
 export default function Navigation() {
@@ -55,7 +60,11 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 
 function RootNavigator() {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+      screenOptions={{
+        headerTitleAlign: "center",
+      }}
+    >
       <Stack.Screen
         name="Launch"
         component={LauchScreen}
@@ -117,9 +126,24 @@ function RootNavigator() {
         options={{headerShown: true, title: "Fellow Donor Near-By"}}
       />
       <Stack.Screen
-        name="Root"
-        component={BottomTabNavigator}
-        options={{headerShown: false}}
+        name="Favourite"
+        component={FavouriteScreen}
+        options={{headerShown: true, title: "Favourite"}}
+      />
+      <Stack.Screen
+        name="Donation"
+        component={DonationScreen}
+        options={{headerShown: true, title: "My Donations"}}
+      />
+      <Stack.Screen
+        name="Rewards"
+        component={RewardScreen}
+        options={{headerShown: true, title: "Reward"}}
+      />
+      <Stack.Screen
+        name="FollowUp"
+        component={FollowUpScreen}
+        options={{headerShown: true, title: "Follow Up"}}
       />
       <Stack.Screen
         name="NotFound"
@@ -150,6 +174,10 @@ function BottomTabNavigator() {
         tabBarActiveTintColor: "white",
         tabBarActiveBackgroundColor: "#009CDE",
         tabBarInactiveTintColor: "#009CDE",
+        headerStyle: {
+          shadowColor: "black",
+        },
+        headerTitleAlign: "center",
       }}
     >
       <BottomTab.Screen
@@ -168,6 +196,7 @@ function BottomTabNavigator() {
         component={PickupScreen}
         options={({navigation}: RootTabScreenProps<"PickUp">) => ({
           title: "Pick Up",
+
           tabBarIcon: ({color}) => (
             <TabBarIcon name="truck-fast" color={color} />
           ),
@@ -193,6 +222,7 @@ function BottomTabNavigator() {
         component={TellAFriendScreen}
         options={({navigation}: RootTabScreenProps<"TellFriend">) => ({
           title: "Tell a friend ",
+
           tabBarIcon: ({color}: {color: string}) => (
             <Entypo name="sound" size={24} color={color} />
           ),

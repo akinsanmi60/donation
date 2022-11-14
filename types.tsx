@@ -32,6 +32,10 @@ export type RootStackParamList = {
   Confirmation: undefined;
   SelectMedium: undefined;
   FellowDonor: undefined;
+  Favourite: undefined;
+  Donation: undefined;
+  Rewards: undefined;
+  FollowUp: undefined;
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> =
