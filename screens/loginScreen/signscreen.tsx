@@ -23,8 +23,7 @@ function Signscreen() {
 
   const SigInPress = (data: LoginProp) => {
     console.log(data);
-    alert(data.email);
-    navigation.navigate("HomeScreen");
+    navigation.navigate("Location");
   };
 
   const ForgotPress = () => {
@@ -36,8 +35,8 @@ function Signscreen() {
   };
 
   return (
-    <ScrollView showsVerticalScrollIndicator={false}>
-      <View style={styles.root}>
+    <ScrollView showsVerticalScrollIndicator={false} style={styles.root}>
+      <View>
         <Text style={styles.titleText}>Login to your account</Text>
         <CustomInput
           placeholder="Email"
@@ -91,11 +90,10 @@ function Signscreen() {
 
 const styles = StyleSheet.create({
   root: {
-    alignItems: "center",
     padding: 20,
+    backgroundColor: "#FFFFFF",
   },
   titleText: {
-    // alignSelf: "flex-start",
     fontSize: 24,
     fontWeight: "bold",
     color: "#051C60",

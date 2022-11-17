@@ -1,0 +1,51 @@
+export const fakeData = [
+  {
+    id: "1",
+    type: "6 points for donation",
+    date: "15/11/2022",
+    time: "10:30pm",
+    reward: "20kg",
+  },
+  {
+    id: "2",
+    type: "56 points for referral",
+    date: "19/11/2022",
+    time: "11:30pm",
+    reward: "2 Friends",
+  },
+  {
+    id: "3",
+    type: "21 points for donation",
+    date: "15/11/2022",
+    time: "9:30pm",
+    reward: "90kg",
+  },
+  {
+    id: "4",
+    type: "86 points for referral",
+    date: "09/11/2022",
+    time: "11:30pm",
+    reward: "5 Friends",
+  },
+  {
+    id: "5",
+    type: "46 points for referral",
+    date: "20/11/2021",
+    time: "4:40pm",
+    reward: "4 Friends",
+  },
+  {
+    id: "6",
+    type: "12 points for donation",
+    date: "30/11/2022",
+    time: "9:30pm",
+    reward: "40kg",
+  },
+  {
+    id: "7",
+    type: "86 points for referral",
+    date: "07/11/2022",
+    time: "06:30am",
+    reward: "5 Friends",
+  },
+];

@@ -22,7 +22,7 @@ function SplashScreenC() {
   const {height} = useWindowDimensions();
 
   const handleOnPress = () => {
-    navigation.navigate("Login");
+    navigation.navigate("Register");
   };
 
   return (

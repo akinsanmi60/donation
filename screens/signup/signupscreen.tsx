@@ -42,8 +42,8 @@ const SignUpScreen = () => {
   };
 
   return (
-    <ScrollView showsVerticalScrollIndicator={false}>
-      <View style={styles.root}>
+    <ScrollView showsVerticalScrollIndicator={false} style={styles.root}>
+      <View>
         <Text style={styles.title}>Create account</Text>
 
         <CustomInput
@@ -160,8 +160,8 @@ const SignUpScreen = () => {
 
 const styles = StyleSheet.create({
   root: {
-    alignItems: "center",
     padding: 20,
+    backgroundColor: "#FFFFFF",
   },
   title: {
     fontSize: 24,

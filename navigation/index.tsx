@@ -41,7 +41,9 @@ import FavouriteScreen from "../screens/favouriteScreen/favourite";
 import DonationScreen from "../screens/donationScreen/donation";
 import RewardScreen from "../screens/rewardScreen/reward";
 import FollowUpScreen from "../screens/followUpScreen/follow";
-
+import ClaimedScreen from "../screens/rewardScreen/component/claimedReward";
+import ProgressScreen from "../screens/rewardScreen/component/progressScreen";
+import LocationScreen from "../screens/locationScreen/locationScreen";
 import LinkingConfiguration from "./LinkingConfiguration";
 
 export default function Navigation() {
@@ -88,6 +90,11 @@ function RootNavigator() {
       <Stack.Screen
         name="Login"
         component={Signscreen}
+        options={{headerShown: true, title: "Login"}}
+      />
+      <Stack.Screen
+        name="Location"
+        component={LocationScreen}
         options={{headerShown: true, title: "Login"}}
       />
       <Stack.Screen
@@ -139,6 +146,16 @@ function RootNavigator() {
         name="Rewards"
         component={RewardScreen}
         options={{headerShown: true, title: "Reward"}}
+      />
+      <Stack.Screen
+        name="ClaimReward"
+        component={ClaimedScreen}
+        options={{headerShown: true, title: "Claim Reward"}}
+      />
+      <Stack.Screen
+        name="RewardClaimed"
+        component={ProgressScreen}
+        options={{headerShown: true, title: "Claim Reward"}}
       />
       <Stack.Screen
         name="FollowUp"
